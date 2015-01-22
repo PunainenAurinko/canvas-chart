@@ -106,8 +106,13 @@ function drawPie() {
         var dy = Math.sin(midAngle) * (0.6 * radius);
         context.moveTo(dx, dy);
         //ending points for the lines
-        var dx = Math.cos(midAngle) * (radius + 30); //30px beyond radius
-        var dy = Math.sin(midAngle) * (radius + 30);
+        if (value === data.segments[4].value) {
+            var dx = Math.cos(midAngle) * (radius + 50); //30px beyond radius
+            var dy = Math.sin(midAngle) * (radius + 50);
+        } else {
+            var dx = Math.cos(midAngle) * (radius + 30); //30px beyond radius
+            var dy = Math.sin(midAngle) * (radius + 30);
+        }
         context.lineTo(dx, dy);
         context.stroke();
     
@@ -137,6 +142,7 @@ function drawTarget() {
     
     var cx = canvas.width/2.2;
     var cy = canvas.height/2;
+    var spacing = 1;
  		
     for(var i=0; i<data.segments.length; i++) {
         
@@ -160,6 +166,8 @@ function drawTarget() {
 //        context.stroke();
         context.fillStyle = colour;
         context.moveTo(cx, cy-200);
+//        context.fillText(label, (cx+(9*spacing))*1.3, (cy+(12*spacing))+9);
         context.fillText(label, (cx+value)*1.3, (cy+value)*1.1);
+        spacing++;
     }
 }
