@@ -142,8 +142,7 @@ function drawTarget() {
     
     var cx = canvas.width/2.2;
     var cy = canvas.height/2;
-    var spacing = 1;
- 		
+     		
     for(var i=0; i<data.segments.length; i++) {
         
         colour = data.segments[i].color;
@@ -156,18 +155,9 @@ function drawTarget() {
         context.arc(cx, cy, value*Math.PI, pct*Math.PI, false);
         context.lineWidth = 17;
 	 	context.strokeStyle = colour;
-//	 	context.lineTo(cx, cy);
         context.stroke();
-        
-        
-//        context.strokeStyle = "#fff";	//colour of the lines
-//        context.lineWidth = 2.5;
-//        context.lineTo(cx*value, cy*value);
-//        context.stroke();
+
         context.fillStyle = colour;
-        context.moveTo(cx, cy-200);
-//        context.fillText(label, (cx+(9*spacing))*1.3, (cy+(12*spacing))+9);
-        context.fillText(label, (cx+value)*1.3, (cy+value)*1.1);
-        spacing++;
+        context.fillText(label, ((cx+value)*1.4)-10, (cy+value*2)+18);
     }
 }
